@@ -48,6 +48,8 @@ async function main() {
   const pr = github.context.payload.pull_request;
   const push = !!token && !!pr;
 
+  console.log(`Push enabled: ${push}`);
+
   const cachePaths = [path.join(os.homedir(), '.cache', 'pre-commit')];
   const py = getPythonVersion();
   const cacheKey = `pre-commit-2-${hashString(py)}-${hashFile(
